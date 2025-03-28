@@ -3,6 +3,12 @@ import { Menu, Home, Info, Briefcase, Mail } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ModeToggle } from "./ThemeToggle";
 import { Link } from "react-router-dom";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Header = () => {
   const menuItems = [
@@ -28,6 +34,12 @@ const Header = () => {
             </Button>
           </Link>
         ))}
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
         <ModeToggle />
       </div>
 
@@ -54,7 +66,10 @@ const Header = () => {
             <nav className="flex flex-col gap-3">
               {menuItems.map((item, index) => (
                 <Link to={item.link} key={index}>
-                  <Button variant="ghost" className="flex items-center gap-2 text-md w-full">
+                  <Button
+                    variant="ghost"
+                    className="flex items-center gap-2 text-md w-full"
+                  >
                     <item.icon className="w-5 h-5" />
                     {item.text}
                   </Button>
@@ -63,6 +78,12 @@ const Header = () => {
             </nav>
           </SheetContent>
         </Sheet>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
         <ModeToggle />
       </div>
     </nav>

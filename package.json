@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.25.5",
+    "@clerk/react-router": "^1.1.11",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-menubar": "^1.1.6",
@@ -22,7 +24,7 @@
     "date-fns": "^3.6.0",
     "lucide-react": "^0.484.0",
     "react": "^19.0.0",
-    "react-day-picker": "^8.10.1",
+    "react-day-picker": "^9.6.3",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.0",
     "tailwind-merge": "^3.0.2",
