@@ -34,7 +34,7 @@ export const EditTaskModal: React.FC<EditTaskModalProps> = ({ task, onSave, onCl
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-[425px] bg-white/40 dark:bg-neutral-800/40 backdrop-blur-lg">
+      <DialogContent className="sm:max-w-[425px] bg-white/30 dark:bg-neutral-800/60 backdrop-blur-lg">
         <DialogHeader>
           <DialogTitle>Edit Task</DialogTitle>
         </DialogHeader>

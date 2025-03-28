@@ -20,6 +20,11 @@ interface DisplayTasksProps {
 
 const DisplayTasks: React.FC<DisplayTasksProps> = ({ tasks, setTasks }) => {
   const [editTask, setEditTask] = useState<Task | null>(null);
+  const [activeTaskId, setActiveTaskId] = useState<number | null>(null);
+
+  const toggleButtons = (id: number) => {
+    setActiveTaskId(activeTaskId === id ? null : id);
+  };
 
   const handleDelete = (id: number) => {
     try {
@@ -32,16 +37,21 @@ const DisplayTasks: React.FC<DisplayTasksProps> = ({ tasks, setTasks }) => {
     }
   };
 
-  const handleEditSave = (id: number, newTitle: string, newDescription: string) => {
+  const handleEditSave = (
+    id: number,
+    newTitle: string,
+    newDescription: string
+  ) => {
     try {
       const updatedTasks = tasks.map((task) =>
-        task.id === id ? { ...task, title: newTitle, description: newDescription } : task
+        task.id === id
+          ? { ...task, title: newTitle, description: newDescription }
+          : task
       );
       setTasks(updatedTasks);
       localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     } catch (error) {
       console.error("Failed to edit task:", error);
-      // Error feedback is handled in EditTaskModal
     }
   };
 
@@ -83,9 +93,15 @@ const DisplayTasks: React.FC<DisplayTasksProps> = ({ tasks, setTasks }) => {
                 : "bg-white/40 dark:bg-neutral-950/40",
               "backdrop-blur-lg shadow-xl rounded-xl border border-neutral-200/50 dark:border-neutral-800/50 p-3"
             )}
+            onClick={() => toggleButtons(t.id)} // Toggle on tap
           >
             <div className="text-start">
-              <h5 className={cn("text-lg font-bold", t.completed && "line-through text-gray-500")}>
+              <h5
+                className={cn(
+                  "text-lg font-bold",
+                  t.completed && "line-through text-gray-500"
+                )}
+              >
                 {t.title}
               </h5>
               <p className="text-neutral-600">
@@ -95,17 +111,29 @@ const DisplayTasks: React.FC<DisplayTasksProps> = ({ tasks, setTasks }) => {
                 {t.dueDate ? format(new Date(t.dueDate), "PPP") : "No due date"}
               </p>
             </div>
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 sm:group-active:opacity-100 transition-opacity flex flex-col gap-1 -m-2 mt-0.25">
+            <div
+              className={cn(
+                "absolute right-0 top-1/2 -translate-y-1/2 transition-all duration-300 flex flex-col gap-1",
+                activeTaskId === t.id ? "visible opacity-100" : "invisible opacity-0",
+                "md:invisible md:opacity-0 md:group-hover:visible md:group-hover:opacity-100"
+              )}
+            >
               <button
                 className="p-2 bg-blue-500/70 hover:bg-blue-600/40 focus:bg-blue-600/40 text-white rounded-tr-lg shadow-md transition duration-300 flex items-center gap-1 backdrop-blur-md border border-white/10 dark:border-neutral-800/30"
-                onClick={() => setEditTask(t)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setEditTask(t);
+                }}
                 aria-label={`Edit task: ${t.title}`}
               >
                 <Pencil className="w-3 h-3" />
               </button>
               <button
                 className="p-2 bg-red-500/70 hover:bg-red-600/40 focus:bg-red-600/40 text-white shadow-md transition duration-300 flex items-center gap-1 backdrop-blur-md border border-white/10 dark:border-neutral-800/30"
-                onClick={() => handleDelete(t.id)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDelete(t.id);
+                }}
                 aria-label={`Delete task: ${t.title}`}
               >
                 <Trash2 className="w-3 h-3" />
@@ -117,8 +145,15 @@ const DisplayTasks: React.FC<DisplayTasksProps> = ({ tasks, setTasks }) => {
                     ? "bg-gray-400 hover:bg-gray-500/40 focus:bg-gray-500/40"
                     : "bg-green-500/70 hover:bg-green-600/40 focus:bg-green-600/40"
                 )}
-                onClick={() => handleComplete(t.id)}
-                aria-label={t.completed ? `Unmark task as complete: ${t.title}` : `Mark task as complete: ${t.title}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleComplete(t.id);
+                }}
+                aria-label={
+                  t.completed
+                    ? `Unmark task as complete: ${t.title}`
+                    : `Mark task as complete: ${t.title}`
+                }
               >
                 <CheckCircle className="w-3 h-3" />
               </button>
