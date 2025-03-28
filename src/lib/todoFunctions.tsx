@@ -1,9 +1,10 @@
 interface Task {
-    id: number;
-    title: string;
-    description: string;
-    dueDate: string; // Store as string for localStorage
-  }
+  id: number;
+  title: string;
+  description: string;
+  dueDate: string; // Store as string for localStorage
+  completed: boolean;
+}
 
 const isValidTask = (item: {
   id: number;
@@ -19,7 +20,10 @@ const isValidTask = (item: {
   );
 };
 
-export const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>, setTasks: React.Dispatch<React.SetStateAction<Task[]>>) => {
+export const handleFileUpload = (
+  event: React.ChangeEvent<HTMLInputElement>,
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>
+) => {
   const file = event.target.files?.[0];
   if (!file) return;
 

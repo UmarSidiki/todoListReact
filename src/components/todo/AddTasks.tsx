@@ -14,6 +14,7 @@ interface Task {
   title: string;
   description: string;
   dueDate: string;
+  completed: boolean;
 }
 
 interface AddTasksProps {
@@ -59,12 +60,12 @@ const AddTasks: React.FC<AddTasksProps> = ({
                 placeholder="Enter your task"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
-                className="w-full rounded-lg border-neutral-200 dark:border-neutral-700 focus:ring-2 focus:ring-blue-500"
+                className="w-full rounded-lg border-neutral-200 dark:border-neutral-700 focus:ring-2 focus:ring-blue-500 mb-1"
               />
             </div>
             <div className="space-y-2">
               <label
-                className="text-sm font-medium text-neutral-700 dark:text-neutral-300"
+                className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1"
                 htmlFor="inputDescription"
               >
                 Description
@@ -78,7 +79,7 @@ const AddTasks: React.FC<AddTasksProps> = ({
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+              <label className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                 Due Date
               </label>
               <Popover>

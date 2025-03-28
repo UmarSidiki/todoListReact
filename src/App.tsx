@@ -6,6 +6,7 @@ import DisplayTasks from "@/components/todo/DisplayTasks";
 import AddTasks from "./components/todo/AddTasks";
 
 interface Task {
+  completed: boolean;
   id: number;
   title: string;
   description: string;
@@ -29,6 +30,7 @@ const App = () => {
       title: task,
       description: description,
       dueDate: date?.toISOString() || "",
+      completed: false,
     };
 
     const updatedTasks = [...tasks, newTask];
@@ -46,7 +48,7 @@ const App = () => {
       <HomeTemplate className="overflow-hidden">
         <div className="container mx-auto px-4 py-8 md:py-12 max-w-7xl overflow-y-auto no-scrollbar">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start justify-items-center">
-            <DisplayTasks tasks={tasks} />
+            <DisplayTasks tasks={tasks} setTasks={setTasks} />
 
             <AddTasks
               task={task}
