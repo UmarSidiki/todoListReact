@@ -1,32 +1,3 @@
-.custom-bg {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  height: calc((1 - var(--template-frame-height, 0)) * 100%);
-  margin-top: max(40px - var(--template-frame-height, 0px), 0px);
-  min-height: 100%;
-}
-
-.dark .custom-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image: radial-gradient(
-    at 50% 50%,
-    hsla(210, 100%, 16%, 0.5),
-    hsl(210, 100%, 2%)
-  );
-}
-
 .custom-bg::before {
   content: "";
   display: block;
