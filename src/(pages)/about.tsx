@@ -24,16 +24,6 @@ const About = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center px-4 sm:px-6 py-24 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-neutral-50 to-green-50 dark:from-neutral-900 dark:via-neutral-900/20 dark:to-green-900/20" />
-        <div className="absolute top-0 left-0 w-full h-full opacity-20 dark:opacity-30">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-green-400/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-neutral-400/20 rounded-full blur-3xl animate-pulse delay-500" />
-          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-yellow-400/20 rounded-full blur-3xl animate-pulse delay-1500" />
-        </div>
-      </div>
 
       {/* Content Container */}
       <motion.div

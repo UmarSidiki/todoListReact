@@ -37,16 +37,6 @@ const itemVariants = {
 const HomeNoLoggedIn = () => {
   return (
     <section className="relative flex flex-col items-center text-center px-4 sm:px-6 py-12 min-h-screen overflow-hidden">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50 via-neutral-50 to-green-50 dark:from-neutral-900 dark:via-neutral-900/20 dark:to-green-900/20" />
-        <div className="absolute top-0 left-0 w-full h-full opacity-20 dark:opacity-30">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-green-400/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-neutral-400/20 rounded-full blur-3xl animate-pulse delay-500" />
-          <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-yellow-400/20 rounded-full blur-3xl animate-pulse delay-1500" />
-        </div>
-      </div>
 
       {/* Hero Section */}
       <motion.div
@@ -69,7 +59,7 @@ const HomeNoLoggedIn = () => {
           variants={itemVariants}
           className="text-4xl md:text-6xl font-bold text-neutral-900 dark:text-white mb-6"
         >
-          <span className="bg-gradient-to-r from-neutral-900 dark:from-green-100 to-green-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-green-900 dark:from-green-300 to-green-500 bg-clip-text text-transparent">
             RexTodo
           </span>{" "}
           helps you achieve more
@@ -90,14 +80,14 @@ const HomeNoLoggedIn = () => {
         >
           <SignedOut>
             <NavLink to="/sign-in">
-              <Button className="px-8 py-4 text-lg rounded-xl shadow-lg bg-gradient-to-r from-neutral-600 to-green-600 text-white hover:from-neutral-700 hover:to-green-700">
+              <Button className="px-8 py-4 text-lg rounded-xl shadow-lg bg-gradient-to-r from-green-400 to-green-600 text-white hover:from-green-700 hover:to-green-700 transition-colors duration-300">
                 Get Started - It’s Free
               </Button>
             </NavLink>
             <NavLink to="/features">
               <Button
                 variant="outline"
-                className="px-8 py-4 text-lg rounded-xl border-neutral-300 dark:border-neutral-600"
+                className="px-8 py-4 text-lg rounded-xl border-neutral-300 dark:border-neutral-600 transition-colors duration-300"
               >
                 Learn More
               </Button>
@@ -235,7 +225,7 @@ const HomeNoLoggedIn = () => {
       </div>
 
       {/* Productivity Stats Section */}
-      <div className="relative my-24 w-full max-w-6xl z-10 bg-gradient-to-r from-neutral-500/10 to-green-500/10 dark:from-neutral-900/20 dark:to-green-900/20 rounded-3xl p-8 md:p-12">
+      <div className="relative my-24 w-full max-w-6xl z-10 bg-gradient-to-r from-green-400/10 to-green-500/10 dark:from-green-900/20 dark:to-green-900/20 rounded-3xl p-8 md:p-12">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -393,7 +383,7 @@ const HomeNoLoggedIn = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start mb-4">
                     <div className="flex-shrink-0 mr-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-neutral-400 to-green-500 flex items-center justify-center text-white font-bold">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-green-500 flex items-center justify-center text-white font-bold">
                         {testimonial.author.charAt(0)}
                       </div>
                     </div>
@@ -545,7 +535,7 @@ const HomeNoLoggedIn = () => {
                   <Button
                     className={`w-full py-4 text-lg rounded-xl ${
                       plan.popular
-                        ? "bg-gradient-to-r from-neutral-600 to-green-600 hover:from-neutral-700 hover:to-green-700"
+                        ? "bg-gradient-to-r from-green-400 to-green-600 hover:from-green-400 hover:to-green-700"
                         : "bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-100 dark:hover:bg-neutral-200 dark:text-neutral-900"
                     }`}
                   >
@@ -566,7 +556,7 @@ const HomeNoLoggedIn = () => {
         transition={{ duration: 0.5 }}
         className="relative my-24 w-full max-w-4xl z-10"
       >
-        <div className="bg-gradient-to-r from-neutral-500 dark:from-neutral-900 to-green-600 rounded-3xl p-8 md:p-12 text-center">
+        <div className="bg-gradient-to-r from-green-600 dark:from-green-900 to-green-700 rounded-3xl p-8 md:p-12 text-center">
           <img
             src={TrophySvg}
             alt="Trophy"

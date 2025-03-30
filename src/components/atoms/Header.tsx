@@ -4,8 +4,8 @@ import { Menu, Home, Info, Briefcase, Mail } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ModeToggle } from "./ThemeToggle";
 import { NavLink } from "react-router-dom";
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
-import SignInButton from "@/components/atoms/SignInButton";
+import { SignedIn, SignedOut } from "@clerk/clerk-react";
+import UserButton2 from "./UserButton";
 
 const menuItems = [
   { icon: Home, text: "Home", link: "/" },
@@ -67,10 +67,19 @@ const Header = () => {
               <NavItem key={index} item={item} />
             ))}
             <SignedOut>
-              <SignInButton />
+            <Button
+                variant="outline"
+                className="bg-black/80 dark:bg-white/80 text-white dark:text-black 
+             border border-neutral-700 dark:border-neutral-300 
+             backdrop-blur-lg shadow-xl px-6 py-2 rounded-lg 
+             hover:bg-black/90 dark:hover:bg-white/90 hover:text-white
+             transition-all duration-200"
+              >
+                <NavLink to="/sign-in">Sign in</NavLink>
+              </Button>
             </SignedOut>
             <SignedIn>
-              <UserButton />
+              <UserButton2/>
             </SignedIn>
             <ModeToggle />
           </div>
@@ -102,10 +111,19 @@ const Header = () => {
               </SheetContent>
             </Sheet>
             <SignedOut>
-              <SignInButton />
+              <Button
+                variant="outline"
+                className="bg-black/80 dark:bg-white/80 text-white dark:text-black 
+             border border-neutral-700 dark:border-neutral-300 
+             backdrop-blur-lg shadow-xl px-6 py-2 rounded-lg 
+             hover:bg-black/90 dark:hover:bg-white/90 hover:text-white
+             transition-all duration-200"
+              >
+                <NavLink to="/sign-in">Sign in</NavLink>
+              </Button>
             </SignedOut>
             <SignedIn>
-              <UserButton />
+              <UserButton2 />
             </SignedIn>
             <ModeToggle />
           </div>

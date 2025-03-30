@@ -71,3 +71,8 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Optional: Hide DarkBG for a cleaner look */
+[class*="cl-internal-"] {
+  background: transparent !important;
+}

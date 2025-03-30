@@ -4,7 +4,7 @@ import DisplayTasks from "@/components/todo/DisplayTasks";
 import AddTasks from "@/components/todo/AddTasks";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
 import { useState } from "react";
-import HomeNoLoggedIn from "@/components/molecules/HomeNoLoggedIn";
+import HomeNoLoggedIn from "@/components/templates/HomeNoLoggedIn";
 
 interface Task {
   completed: boolean;
