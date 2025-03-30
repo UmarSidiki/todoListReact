@@ -10,7 +10,12 @@ import UserProfilePage from "@/(pages)/UserProfilePage";
 
 // Custom ProtectedRoute component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isLoaded } = useAuth();
+
+  // Don't make a decision until Clerk has finished loading
+  if (!isLoaded) {
+    return <div>Loading authentication...</div>;
+  }
 
   if (!isSignedIn) {
     // Redirect to sign-in page, preserving the original URL as a redirect param
