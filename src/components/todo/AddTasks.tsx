@@ -16,9 +16,8 @@ interface AddTasksProps {
   date: Date | undefined;
   setDate: (date: Date | undefined) => void;
   tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>; // Updated type
   saveData: () => void;
-  getToken: () => Promise<string | null>;
 }
 
 const AddTasks = ({
@@ -31,9 +30,9 @@ const AddTasks = ({
   tasks,
   setTasks,
   saveData,
-  getToken,
 }: AddTasksProps) => {
   return (
+    // ... rest of the component unchanged
     <div className="order-1 md:order-2 w-full max-w-sm mx-auto md:mx-0">
       <div className="p-6 bg-white/40 dark:bg-neutral-950/40 backdrop-blur-lg shadow-xl rounded-xl border border-neutral-200/50 dark:border-neutral-800/50">
         <h2 className="text-2xl font-semibold uppercase text-neutral-900 dark:text-white mb-6">
@@ -41,10 +40,7 @@ const AddTasks = ({
         </h2>
         <div className="space-y-5">
           <div className="space-y-2">
-            <label
-              htmlFor="inputTodo"
-              className="text-sm font-medium text-neutral-700 dark:text-neutral-300"
-            >
+            <label htmlFor="inputTodo" className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
               Todo
             </label>
             <Input
@@ -56,10 +52,7 @@ const AddTasks = ({
             />
           </div>
           <div className="space-y-2">
-            <label
-              htmlFor="inputDescription"
-              className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1"
-            >
+            <label htmlFor="inputDescription" className="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
               Description
             </label>
             <Textarea
@@ -78,10 +71,7 @@ const AddTasks = ({
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className={cn(
-                    "w-full justify-between text-left font-normal",
-                    !date && "text-neutral-500"
-                  )}
+                  className={cn("w-full justify-between text-left font-normal", !date && "text-neutral-500")}
                 >
                   {date ? format(date, "PPP") : "Pick a date"}
                   <CalendarIcon className="w-5 h-5 text-neutral-500" />
@@ -119,7 +109,7 @@ const AddTasks = ({
               accept="application/json"
               id="fileUpload"
               className="hidden"
-              onChange={(event) => handleFileUpload(event, setTasks, getToken)}
+              onChange={(event) => handleFileUpload(event, setTasks)}
             />
             <Button
               variant="outline"
