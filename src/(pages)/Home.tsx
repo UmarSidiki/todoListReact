@@ -54,6 +54,9 @@ const Home = () => {
                 setDate={setDate}
                 saveData={saveData}
                 setTasks={setTasks}
+                getToken={function (): Promise<string | null> {
+                  throw new Error("Function not implemented.");
+                }}
               />
             </div>
           </div>
