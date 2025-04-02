@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Task } from "./DisplayTasks"; // Import Task interface
+import type { Task } from "@/lib/todoFunctions";
 
 interface EditTaskModalProps {
   task: Task;
