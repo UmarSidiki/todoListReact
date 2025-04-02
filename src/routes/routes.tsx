@@ -14,7 +14,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
   // Don't make a decision until Clerk has finished loading
   if (!isLoaded) {
-    return <div>Loading authentication...</div>;
+    return null; // or a loading spinner
   }
 
   if (!isSignedIn) {
